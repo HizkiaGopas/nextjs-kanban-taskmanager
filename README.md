@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+```python
+import os
 
-## Getting Started
+readme_content = """# 🚀 Minimalist Glassmorphic Kanban Task Manager
 
-First, run the development server:
+Sebuah aplikasi pengelola tugas (*Task Manager*) modern berformat **Kanban Board** dengan estetika visual **Clean Minimalist ala Notion** yang dikombinasikan dengan efek **Glassmorphic premium** berkilau emas (*gold accent*). 
+
+Proyek ini dibangun menggunakan *full-stack modern web stack* dengan integrasi database non-relasional yang andal.
+
+---
+
+## ✨ Fitur Utama
+- **Estetika Glassmorphism & Notion Gold:** UI bersih, minimalis, menggunakan efek kaca transparan (`backdrop-blur`) dengan sentuhan warna emas/amber yang mewah namun elegan.
+- **Full-Stack CRUD Architecture:** Operasi pembuatan, pembacaan, pembaruan status, dan penghapusan tugas terintegrasi langsung dari *frontend* ke *backend*.
+- **Interactive Kanban Board Grid:** Pembagian tugas ke dalam 3 kolom interaktif (*To Do*, *In Progress*, dan *Done*) lengkap dengan perhitungan jumlah tugas dinamis.
+- **Glowing Priority Border Badges:** Kartu tugas memiliki efek pencahayaan tepi (*glowing border*) otomatis yang membedakan tingkat urgensi berdasarkan warna (High = Merah, Medium = Emas, Low = Hijau).
+- **Persistent Data Storage:** Data tersimpan secara permanen di database lokal, aman dari risiko kehilangan data saat halaman dimuat ulang (*refresh*).
+
+---
+
+## 🛠️ Stack Teknologi
+- **Framework Frontend/Backend:** Next.js (App Router)
+- **Bahasa Pemrograman:** TypeScript & JavaScript
+- **Styling UI:** Tailwind CSS (Custom Backdrop-Blur & Arbitrary Shadow)
+- **Komponen Ikon:** Lucide React
+- **Database:** MongoDB
+- **Object Data Modeling (ODM):** Mongoose
+
+---
+
+## 📂 Struktur Proyek
+
+```
+
+```text
+SUCCESS
+
+```text
+web-sederhana/
+├── app/
+│   ├── api/
+│   │   └── tasks/
+│   │       ├── route.ts          # Endpoint GET (Read) & POST (Create)
+│   │       └── [id]/
+│   │           └── route.ts      # Endpoint PUT (Update Status) & DELETE
+│   ├── layout.tsx
+│   └── page.tsx                  # UI Kanban Board Glassmorphism (Frontend)
+├── lib/
+│   └── db.ts                     # Konfigurasi & Caching Koneksi MongoDB
+├── models/
+│   └── Task.ts                   # Mongoose Schema & Interface TypeScript Task
+├── .env.local                    # Konfigurasi Environment Variable (Lokal)
+├── package.json
+└── tsconfig.json
+
+```
+
+---
+
+## 🚀 Panduan Instalasi & Menjalankan Lokal
+
+### 1. Prasyarat
+
+Pastikan perangkat Anda sudah terinstal:
+
+* [Node.js](https://nodejs.org/) (Versi terbaru direkomendasikan)
+* [MongoDB Community Server](https://www.mongodb.com/try/download/community) & [MongoDB Compass](https://www.mongodb.com/products/tools/compass) (Sedang berjalan di `localhost:27017`)
+
+### 2. Kloning Repositori
+
+```bash
+git clone [https://github.com/USERNAME_ANDA/NAMA_REPOSITORI.git](https://github.com/USERNAME_ANDA/NAMA_REPOSITORI.git)
+cd web-sederhana
+
+```
+
+### 3. Instal Dependensi
+
+Instal semua package dan library yang dibutuhkan:
+
+```bash
+npm install
+
+```
+
+### 4. Konfigurasi Database (Environment)
+
+Buat file bernama `.env.local` di root folder proyek (`web-sederhana/`) dan masukkan string koneksi MongoDB Anda:
+
+```env
+MONGODB_URI=mongodb://127.0.0.1:27017/taskmanager_db
+
+```
+
+*(Catatan: Proyek ini menggunakan skema manajemen koneksi global caching untuk mencegah penumpukan koneksi selama proses Hot Module Replacement).*
+
+### 5. Jalankan Server Development
+
+Nyalakan server lokal Next.js:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka browser Anda dan akses **`http://localhost:3000`** (atau port alternatif seperti `3001` jika port 3000 sedang terkunci).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛡️ Praktik Keamanan & Git
 
-## Learn More
+File `.env.local` yang berisi string koneksi database lokal Anda telah dikonfigurasi di dalam `.gitignore` agar tidak ikut terunggah ke repositori publik GitHub, menjaga kredensial database Anda tetap aman secara lokal.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+*Proyek ini dikembangkan sebagai implementasi fungsional pengembangan web full-stack modern dengan performa tinggi menggunakan Next.js Turbopack.*
+"""
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+with open("README.md", "w", encoding="utf-8") as f:
+f.write(readme_content)
 
-## Deploy on Vercel
+print("SUCCESS")
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
